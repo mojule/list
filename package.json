@@ -1,0 +1,30 @@
+{
+  "name": "@mojule/list",
+  "version": "0.1.0",
+  "description": "list",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha",
+    "coverage": "istanbul cover node_modules/mocha/bin/_mocha"
+  },
+  "keywords": [],
+  "author": "Nik Coughlin <nrkn.com@gmail.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mojule/list.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mojule/list/issues"
+  },
+  "homepage": "https://github.com/mojule/list#readme",
+  "devDependencies": {
+    "istanbul": "^0.4.5",
+    "mocha": "^3.4.2",
+    "pull-stream": "^3.6.0"
+  },
+  "dependencies": {
+    "@mojule/api-factory": "github:mojule/api-factory#1.0.0",
+    "@mojule/is": "^0.1.7"
+  }
+}

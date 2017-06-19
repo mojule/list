@@ -129,6 +129,18 @@ describe( 'List', () => {
 
         assert.deepEqual( expect, result )
       })
+
+      it( 'derived filter', () => {
+        const source = [ 1, 2, 3 ]
+        const list = List( source )
+        const even = list.filter( n => n % 2 === 0 )
+
+        assert.deepEqual( Array.from( even ), [ 2 ] )
+
+        source.push( 4 )
+
+        assert.deepEqual( Array.from( even ), [ 2, 4 ] )
+      })
     })
 
     describe( 'find', () => {

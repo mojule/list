@@ -23,12 +23,13 @@ const prepend = require( './api/map' )
 const reduce = require( './api/reduce' )
 const slice = require( './api/slice' )
 const some = require( './api/some' )
+const toArray = require( './api/toArray' )
 const values = require( './api/values' )
 
 const api = [
   append, concat, entries, every, filter, find, findIndex, forEach, includes,
   indexOf, insertAfter, insertBefore, item, iterator, keys, length, map,
-  prepend, reduce, slice, some, values
+  prepend, reduce, slice, some, toArray, values
 ]
 
 const range = require( './statics/range' )

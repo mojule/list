@@ -348,6 +348,25 @@ describe( 'List', () => {
       it( 'missing', () => {
         assert.strictEqual( testData.nope, list.nope )
       })
+
+      function* generator(){
+        yield 0
+        yield 1
+        yield 2
+        yield 3
+      }
+
+      it( 'multiple instances from same generator', () => {
+        const list1 = List( generator )
+        const len1 = list1.length
+        for( let i = 0; i < len1; i++ )
+          assert.strictEqual( list1[ i ], i )
+
+        const list2 = List( generator )
+        const len2 = list2.length
+        for( let i = 0; i < len2; i++ )
+          assert.strictEqual( list2[ i ], i )
+      })
     })
 
     describe( 'iterable', () => {

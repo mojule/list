@@ -2,13 +2,15 @@
 
 const is = require( '@mojule/is' )
 
+const empty = () => [][ Symbol.iterator ]()
+
 const core = ({ core, Api }) => {
   core.isState = value =>
     is.function( value ) && is.function( value()[ Symbol.iterator ] )
 
   core.createState = ( ...args ) => {
     if( args.length === 0 )
-      return () => [][ Symbol.iterator ]()
+      return empty
 
     if( args.length === 1 ){
       const value = args[ 0 ]

@@ -19,9 +19,11 @@
   },
   "homepage": "https://github.com/mojule/list#readme",
   "devDependencies": {
+    "fastbench": "^1.0.1",
     "istanbul": "^0.4.5",
     "mocha": "^3.4.2",
-    "pull-stream": "^3.6.0"
+    "pull-stream": "^3.6.0",
+    "wu": "^2.1.0"
   },
   "dependencies": {
     "@mojule/api-factory": "github:mojule/api-factory#1.0.0",

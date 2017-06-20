@@ -2,6 +2,9 @@
 
 List factory - work in progress
 
+NB - `list` is not suitable for use inside hot code - V8 does not optimize
+generator functions - use arrays if you need very high performance
+
 ## Install
 
 `npm install @mojule/list`

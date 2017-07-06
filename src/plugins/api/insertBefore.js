@@ -1,17 +1,20 @@
 'use strict'
 
 const insertBefore = ({ api, state, Api }) => {
-  const insertBefore = ( reference, ...values ) => function*(){
+  const insertBefore = ( index, ...values ) => function*(){
+    let i = 0
     for( let current of state() ){
-      if( current === reference )
+      if( i === index )
         for( let value of values )
           yield value
 
       yield current
+
+      i++
     }
   }
 
-  api.insertBefore = ( reference, ...values ) => Api( insertBefore( reference, ...values ) )
+  api.insertBefore = ( index, ...values ) => Api( insertBefore( index, ...values ) )
 }
 
 module.exports = insertBefore

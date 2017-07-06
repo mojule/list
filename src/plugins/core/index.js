@@ -4,6 +4,14 @@ const is = require( '@mojule/is' )
 
 const empty = () => [][ Symbol.iterator ]()
 
+function* pairs( obj ){
+  for( let name of Object.keys( obj ) ){
+    const value = obj[ name ]
+
+    yield { name, value }
+  }
+}
+
 const core = ({ core, Api }) => {
   core.isState = value =>
     is.function( value ) && is.function( value()[ Symbol.iterator ] )
@@ -23,6 +31,9 @@ const core = ({ core, Api }) => {
 
       if( is.number( value ) )
         return () => Array( value )[ Symbol.iterator ]()
+
+      if( is.object( value ) )
+        return () => pairs( value )
 
       return
     }

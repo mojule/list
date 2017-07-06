@@ -28,6 +28,7 @@ const array = ( ...values ) => {
   const arr8 = arr7.slice( 2, 10 )
   const arr9 = [ ...arr8, arr8.every( n => typeof n === 'number' ) ? 3 : 0 ]
   const arr10 = [ ...arr9, arr9.some( n => n === 0 ) ? 5 : 0 ]
+  arr10.splice( 4, 0, ...values )
 
   return arr10
 }
@@ -57,8 +58,9 @@ const list = ( ...values ) => {
   const list8 = list7.slice( 2, 10 )
   const list9 = List( ...list8, list8.every( n => typeof n === 'number' ) ? 3 : 0 )
   const list10 = List( ...list9, list9.some( n => n === 0 ) ? 5 : 0 )
+  const list11 = list10.insertBefore( 4, ...values )
 
-  return list10
+  return list11
 }
 
 const random = () => Math.floor( Math.random() * 10 )

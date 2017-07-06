@@ -60,6 +60,31 @@ describe( 'List', () => {
       assert.strictEqual( list.length, 10 )
     })
 
+    it( 'from object', () => {
+      const obj = { a: 0, b: 1, c: 2 }
+      const list = List( obj )
+
+      assert.strictEqual( list.length, 3 )
+      assert.deepEqual( list[ 0 ], { name: 'a', value: 0 } )
+      assert.deepEqual( list[ 1 ], { name: 'b', value: 1 } )
+      assert.deepEqual( list[ 2 ], { name: 'c', value: 2 } )
+    })
+
+    it( 'object is live', () => {
+      const obj = { a: 0, b: 1, c: 2 }
+      const list = List( obj )
+
+      assert.strictEqual( list.length, 3 )
+      assert.deepEqual( list[ 0 ], { name: 'a', value: 0 } )
+      assert.deepEqual( list[ 1 ], { name: 'b', value: 1 } )
+      assert.deepEqual( list[ 2 ], { name: 'c', value: 2 } )
+
+      obj.d = 3
+
+      assert.strictEqual( list.length, 4 )
+      assert.deepEqual( list[ 3 ], { name: 'd', value: 3 } )
+    })
+
     it( 'invalid state', () => {
       assert.throws( () => List( () => 42 ) )
       assert.throws( () => List( false ) )
@@ -366,6 +391,21 @@ describe( 'List', () => {
         const len2 = list2.length
         for( let i = 0; i < len2; i++ )
           assert.strictEqual( list2[ i ], i )
+      })
+
+      it( 'multiple instances from same object', () => {
+        const obj = { a: 0, b: 1, c: 2 }
+        const list1 = List( obj )
+        const len1 = list1.length
+
+        for( let i = 0; i < len1; i++ )
+          assert.deepEqual( list1[ i ].value, i )
+
+        const list2 = List( obj )
+        const len2 = list2.length
+
+        for( let i = 0; i < len2; i++ )
+          assert.strictEqual( list2[ i ].value, i )
       })
     })
 

@@ -26,7 +26,7 @@
     "wu": "^2.1.0"
   },
   "dependencies": {
-    "@mojule/api-factory": "github:mojule/api-factory#1.0.0",
+    "@mojule/api-factory": "^1.0.0",
     "@mojule/is": "^0.1.7"
   }
 }
